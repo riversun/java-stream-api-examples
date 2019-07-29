@@ -15,25 +15,55 @@ import java.util.stream.Stream;
  */
 public class ConcatMergeArray {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		String[] strs1 = { "Mike", "John", "Jack" };
-		String[] strs2 = { "Ben", "Tom" };
+        String[] strs1 = { "Mike", "John", "Jack" };
+        String[] strs2 = { "Ben", "Tom" };
 
-		// Merge arrays using flatMap
+        // Merge arrays using flatMap
 
-		String[] result = Stream
-				.of(strs1, strs2)
-				.flatMap(Stream::of)
-				.toArray(String[]::new);
+        String[] result = Stream
+                .of(strs1, strs2)
+                .flatMap(Stream::of)
+                .toArray(String[]::new);
 
-		System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result));
 
-		// Merge arrays using concat
-		String[] result2 = Stream
-				.concat(Arrays.stream(strs1), Arrays.stream(strs2))
-				.toArray(String[]::new);
+        // Merge arrays using concat
+        String[] result2 = Stream
+                .concat(Arrays.stream(strs1), Arrays.stream(strs2))
+                .toArray(String[]::new);
 
-		System.out.println(Arrays.toString(result2));
-	}
+        System.out.println(Arrays.toString(result2));
+    }
+
+    public static class Person {
+
+        public String name;
+        public int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public Person() {
+        }
+
+        public Person setName(String name) {
+            this.name = name;
+            return Person.this;
+        }
+
+        public Person setAge(int age) {
+            this.age = age;
+            return Person.this;
+        }
+
+        @Override
+        public String toString() {
+            return "Person [name=" + name + ", age=" + age + "]";
+        }
+
+    }
 }

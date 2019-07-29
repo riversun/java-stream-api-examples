@@ -23,24 +23,53 @@ import java.util.stream.IntStream;
  */
 public class MergeArrayAsModelAndSort {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		String[] names = { "Tom", "Mike", "John", "Jude", "Dan" };
-		int[] ages = { 20, 25, 15, 10, 38 };
+        String[] names = { "Tom", "Mike", "John", "Jude", "Dan" };
+        int[] ages = { 20, 25, 15, 10, 38 };
 
-		// Create a list of model objects
-		List<Person> personList = IntStream
-				.range(0, names.length)
-				.mapToObj(idx -> new Person(names[idx], ages[idx]))
-				.collect(Collectors.toList());
+        // Create a list of model objects
+        List<Person> personList = IntStream
+                .range(0, names.length)
+                .mapToObj(idx -> new Person(names[idx], ages[idx]))
+                .collect(Collectors.toList());
 
-		// Sort by public field of model object
-		List<Person> sortedPersonList = personList.stream()
-				.sorted(Comparator.comparingInt((Person s) -> s.age).reversed())
-				.collect(Collectors.toList());
+        // Sort by public field of model object
+        List<Person> sortedPersonList = personList.stream()
+                .sorted(Comparator.comparingInt((Person s) -> s.age).reversed())
+                .collect(Collectors.toList());
 
-		System.out.println(sortedPersonList);
+        System.out.println(sortedPersonList);
 
-	}
+    }
 
+    public static class Person {
+
+        public String name;
+        public int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public Person() {
+        }
+
+        public Person setName(String name) {
+            this.name = name;
+            return Person.this;
+        }
+
+        public Person setAge(int age) {
+            this.age = age;
+            return Person.this;
+        }
+
+        @Override
+        public String toString() {
+            return "Person [name=" + name + ", age=" + age + "]";
+        }
+
+    }
 }
