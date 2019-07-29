@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
  * 
  * @author Tom Misawa (riversun.org@gmail.com)
  */
-public class MergeArrayAsModelAndSort {
+public class CreateSortedListFromEachArray {
 
     public static void main(String[] args) {
 

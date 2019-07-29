@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 
  * @author Tom Misawa (riversun.org@gmail.com)
  */
-public class ConcatMergeArrayOfGeneric {
+public class ConcatArrays {
 
     public static void main(String[] args) {
 

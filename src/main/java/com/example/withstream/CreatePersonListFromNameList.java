@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * 
  * @author Tom Misawa (riversun.org@gmail.com)
  */
-public class CreateModelListParamList {
+public class CreatePersonListFromNameList {
 
     public static void main(String[] args) {
 

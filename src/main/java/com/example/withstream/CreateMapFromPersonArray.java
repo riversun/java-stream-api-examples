@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author Tom Misawa (riversun.org@gmail.com)
  *
  */
-public class ArrayOfModelToMap {
+public class CreateMapFromPersonArray {
 
     public static void main(String[] args) {
 
